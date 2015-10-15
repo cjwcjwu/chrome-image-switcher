@@ -1,9 +1,11 @@
 /* Drag and Drop */
 //Setup drag and drop
 $(function() {
-  $("img, .hero, a, div").each(function () {
+  $("img, .hero, a, div, span").each(function () {
       DragAndDrop.setup($(this));
-  });
+    });
+  $("h1, h2, h3, h4, h5, h6, p, a").attr("contenteditable", "true");
+ 
 });
 var DragAndDrop = (function () {
     var selectedElement;
@@ -86,7 +88,9 @@ var DragAndDrop = (function () {
         var url = evt.target.result;
         if (selectedElement.is("img")) {
             selectedElement.attr("src", url);
-        } else if (selectedElement.is("a, div") && selectedElement.css('background-image')) {
+        } else if (selectedElement.is("a, div, span")
+            && selectedElement.css('background-image')
+            && !(selectedElement.css("background-image") === "none")) {
             selectedElement.css("background-image", "url('" + url.replace(/(\r\n|\n|\r)/gm, "") + "')");         
         } else {
             selectedElement.parents(".hero").find("img").attr("src", url);
