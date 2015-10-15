@@ -8,6 +8,15 @@ body {
     margin: 20px;
 }
 
+#version {
+    margin-top: 15px;
+    text-align: center;
+}
+
+.table {
+    border-bottom: 1px solid #ccc;
+}
+
  .designer-menu a {
 }
 
