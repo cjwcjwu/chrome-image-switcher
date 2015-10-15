@@ -1,0 +1,34 @@
+{
+    "compilerOptions": {
+        "target": "es5",
+        "module": "commonjs",
+        "moduleResolution": "node",
+        "isolatedModules": false,
+        "jsx": "react",
+        "experimentalDecorators": true,
+        "emitDecoratorMetadata": true,
+        "declaration": false,
+        "noImplicitAny": false,
+        "removeComments": true,
+        "noLib": false,
+        "preserveConstEnums": true,
+        "suppressImplicitAnyIndexErrors": true,
+        "sourceMap": true
+    },
+    "filesGlob": [
+        "**/*.ts",
+        "**/*.tsx",
+        "!node_modules/**"
+    ],
+    "files": [
+        "js/background.ts",
+        "js/front.ts",
+        "typings/chrome/chrome.d.ts",
+        "typings/es6-promise/es6-promise.d.ts",
+        "typings/filesystem/filesystem.d.ts",
+        "typings/filewriter/filewriter.d.ts",
+        "typings/tsd.d.ts",
+        "typings/webrtc/MediaStream.d.ts"
+    ],
+    "exclude": []
+}
