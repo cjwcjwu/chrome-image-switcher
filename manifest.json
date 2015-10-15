@@ -16,7 +16,16 @@
       "http://*/*",
       "https://*/*"
     ],
-    "js": ["js/front.js"],
+    "js": [
+      "lib/jquery-1.8.3.min.js",
+      "lib/jquery-1.9.0.js",
+      "lib/jquery-ui-1.10.2.custom.min.js",
+      "js/DragnDrop.js"
+     ],
+    "css" : [
+      "css/jquery-ui-1.10.2.custom.min.css",
+      "css/designer.css"
+    ],
     "all_frames": true,
     "run_at": "document_end"
   }],
