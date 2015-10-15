@@ -1,5 +1,5 @@
 #monaco-designer {
-    max-width: 260px;
+    max-width: 250px;
 }
 
  .designer-menu a {
@@ -141,4 +141,3 @@ left: 116px;
         transform: rotate( -5deg );
     }
 }
-
