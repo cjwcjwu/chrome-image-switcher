@@ -15,7 +15,7 @@ var PageDesigner = (function () {
 
     var turnEditOn = function () {
         isEditMode = true;
-        badgeObj = $("<div id='monaco-designer'></div>");
+        badgeObj = $("<div id='chrome-tool-designer'></div>");
         badgeObj.addClass(configVars.badgeClass).attr("contenteditable", false).html("<h4>" + configVars.menuText + "</h4>");
 
         var html = "<div></div>";
@@ -34,7 +34,7 @@ var PageDesigner = (function () {
             $("a").attr("href", "javascript: void(0)");
 
             //make draggable
-            $("#monaco-designer").draggable();
+            $("#chrome-tool-designer").draggable();
             $("#accordion").accordion({
                 heightStyle: "content"
             });

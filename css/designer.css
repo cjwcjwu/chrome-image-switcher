@@ -1,4 +1,4 @@
-#monaco-designer {
+#chrome-tool-designer {
     max-width: 250px;
 }
 
@@ -7,7 +7,7 @@
 
 .designer-menu > a {
     color: #000;
-	display: block;
+	  display: block;
     text-decoration: none;
     text-transform: uppercase;
     font-weight: lighter;
@@ -15,8 +15,8 @@
 }
 
 .designer-menu > a:hover {
-        color: #3366bb;
-    }
+    color: #3366bb;
+}
 
 .drag-over {
     outline: red solid 2px;
