@@ -22,11 +22,16 @@
     ],
     "files": [
         "js/background.ts",
+        "js/DragnDrop.ts",
         "js/front.ts",
+        "js/inject.ts",
+        "js/PageEditor.ts",
         "typings/chrome/chrome.d.ts",
         "typings/es6-promise/es6-promise.d.ts",
         "typings/filesystem/filesystem.d.ts",
         "typings/filewriter/filewriter.d.ts",
+        "typings/jquery/jquery.d.ts",
+        "typings/jqueryui/jqueryui.d.ts",
         "typings/tsd.d.ts",
         "typings/webrtc/MediaStream.d.ts"
     ],
