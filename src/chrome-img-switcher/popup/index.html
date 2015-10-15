@@ -3,14 +3,34 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 
 <head>
-  <title>image switcher</title>
+    <title>image switcher</title>
+    <script src="../Scripts/jquery-1.9.1.min.js"></script>
+    <script src="../Scripts/bootstrap.min.js"></script>
+    <link href="../Content/bootstrap.min.css" rel="stylesheet" />
+    <link href="../css/designer.css" rel="stylesheet" />
 </head>
 
 <body>
-<h1>image switcher</h1>
-    <div class="btn-group" role="group">
-        <button type="button" class="btn btn-default">Swap images</button>
-        <button type="button" class="btn btn-default">Edit Content</button>
+    <div id="wrapper">
+        <h4>Image switcher</h4>
+        <div class="btn-group" role="group">
+            <button type="button" class="btn btn-default">Swap image</button>
+            <button type="button" class="btn btn-default">Edit Content</button>
+        </div>
+        <br />
+        <br />
+        <table class="table table-hover table-condensed">
+            <tbody>
+                <tr>
+                    <td>Swap image</td>
+                    <td>Swap the image/background image to your local one</td>
+                </tr>
+                <tr>
+                    <td>Edit Content</td>
+                    <td>Inline edit text</td>
+                </tr>
+            </tbody>
+        </table>
     </div>
 </body>
 

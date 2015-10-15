@@ -1,5 +1,11 @@
-#chrome-tool-designer {
-    max-width: 250px;
+body {
+    width: 34em;
+    display: block;
+    position: relative;
+}
+
+#wrapper {
+    margin: 20px;
 }
 
  .designer-menu a {
@@ -7,7 +13,7 @@
 
 .designer-menu > a {
     color: #000;
-	  display: block;
+	display: block;
     text-decoration: none;
     text-transform: uppercase;
     font-weight: lighter;
