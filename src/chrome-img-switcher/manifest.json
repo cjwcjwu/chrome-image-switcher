@@ -62,7 +62,7 @@
       "38": "icon.png"
     },
     "default_title": "Chrome Image Switcher",
-    "default_popup": "popup.html"
+    "default_popup": "popup/index.html"
   },
 
   "permissions": [
