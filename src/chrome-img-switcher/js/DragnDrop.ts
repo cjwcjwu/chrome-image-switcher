@@ -1,7 +1,7 @@
 /* Drag and Drop */
 //Setup drag and drop
 $(function() {
-  $("img, .hero").each(function () {
+  $("img, .hero, a, div").each(function () {
       DragAndDrop.setup($(this));
   });
 });
@@ -62,10 +62,8 @@ var DragAndDrop = (function () {
         //reader.readAsText(readFile, "UTF-8");
         switch (readFile.type) {
             case "image/png":
-                reader.readAsDataURL(readFile);
-                reader.onload = loaded;
-                break;
             case "image/jpeg":
+            case "image/jpg":
                 reader.readAsDataURL(readFile);
                 reader.onload = loaded;
                 break;
@@ -85,14 +83,13 @@ var DragAndDrop = (function () {
 
     var loaded = function (evt) {
         // Obtain the read file data.
-        var fileString = evt.target.result;
+        var url = evt.target.result;
         if (selectedElement.is("img")) {
-            selectedElement.attr("src", fileString);
-            $("iframe").contents().find(".hero img").attr("src", fileString)
+            selectedElement.attr("src", url);
+        } else if (selectedElement.is("a, div") && selectedElement.css('background-image')) {
+            selectedElement.css("background-image", "url('" + url.replace(/(\r\n|\n|\r)/gm, "") + "')");         
         } else {
-            selectedElement.parents(".hero").find("img").attr("src", fileString);
-            //update iframe
-            $("iframe").contents().find(".hero img").attr("src", fileString)
+            selectedElement.parents(".hero").find("img").attr("src", url);
         }
         $(".preview").draggable();
     }
