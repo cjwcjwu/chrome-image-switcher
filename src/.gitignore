@@ -229,5 +229,5 @@ _Pvt_Extensions
 # FAKE - F# Make
 .fake/
 
-js/**/*.js
-js/**/*.js.map
+chrome-img-switcher/js/**/*.js
+chrome-img-switcher/js/**/*.js.map
