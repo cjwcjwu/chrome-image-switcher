@@ -66,9 +66,7 @@
             "19": "icons/success-19.png",
             "38": "icons/success-48.png"
         },
-        "default_title": "Chrome Image Switcher",
-        "default_popup": "popup/index.html"
-
+        "default_title": "Chrome Image Switcher"
     },
 
     "permissions": [
