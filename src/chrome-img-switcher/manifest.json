@@ -1,7 +1,7 @@
 {
     "name": "Chrome Image Switcher",
     "description": "Allow designers to preview images and content on a site",
-    "version": "0.0.0.1",
+    "version": "0.0.0.2",
     "manifest_version": 2,
     "icons": {
         "16": "icons/success-16.png",
@@ -20,14 +20,11 @@
                 "https://*/*"
             ],
             "js": [
-                "lib/jquery-1.8.3.min.js",
                 "lib/jquery-1.9.0.js",
-                "lib/jquery-ui-1.10.2.custom.min.js",
                 "js/inject.js",
                 "js/DragnDrop.js"
             ],
             "css": [
-                "css/jquery-ui-1.10.2.custom.min.css",
                 "css/designer.css"
             ],
             "all_frames": true,
@@ -49,10 +46,7 @@
     },
 
     "permissions": [
-        "tabs",
-        "webRequest",
-        "webRequestBlocking",
-        "<all_urls>"
+        "tabs"
     ],
 
     "content_security_policy": "script-src 'self' 'unsafe-eval'; object-src 'self'"
