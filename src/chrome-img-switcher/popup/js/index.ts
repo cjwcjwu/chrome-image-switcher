@@ -69,7 +69,7 @@
         sendMessage({
             name: "swith-features",
             swapImage: $("#swap-image").is(":checked"),
-            EditContent: $("#edit-content").is(":checked"),
+            editContent: $("#edit-content").is(":checked"),
             changeBackground: $("#change-background").is(":checked")
         });
     }
@@ -77,6 +77,14 @@
     $(() => {
         tabId = parseInt(queryString["tabId"]);
         $("#swap-image").click(() => {
+            switchFeatures();
+        });
+
+        $("#edit-content").click(() => {
+            switchFeatures();
+        });
+
+        $("#change-background").click(() => {
             switchFeatures();
         });
 

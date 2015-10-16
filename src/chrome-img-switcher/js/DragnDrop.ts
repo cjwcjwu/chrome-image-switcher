@@ -1,12 +1,12 @@
 /* Drag and Drop */
 //Setup drag and drop
-$(() => {
-    $("img, .hero, a, div, span").each(function () {
-        DragAndDrop.setup($(this));
-    });
-    $("h1, h2, h3, h4, h5, h6, p, a").attr("contenteditable", "true");
-    //$("h1, h2, h3, h4, h5, h6, p, a").removeAttr("contenteditable");
-});
+//$(() => {
+//    $("img, .hero, a, div, span").each(function () {
+//        DragAndDrop.setup($(this));
+//    });
+//    $("h1, h2, h3, h4, h5, h6, p, a").attr("contenteditable", "true");
+//    //$("h1, h2, h3, h4, h5, h6, p, a").removeAttr("contenteditable");
+//});
 var DragAndDrop = (() => {
     var selectedElement;
     var configVars = {
@@ -131,26 +131,41 @@ var DragAndDrop = (() => {
         element.addEventListener("dragover", dragOver, false);
     }
 
+    var removeSetup = elem => {
+        var element = elem.get(0);
+        element.removeEventListener("drop", dropHandler, false);
+        element.removeEventListener("dragleave", dragLeave, false);
+        element.removeEventListener("dragover", dragOver, false);
+    }
+
     return {
-        setup: setup
+        setup: setup,
+        removeSetup : removeSetup
     };
 })();
 
 chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
+    var $imageType = $("img, .hero, a, div, span"),
+        $contentType = $("h1, h2, h3, h4, h5, h6, p, a");
+    console.log(message);
+    console.log(message.editContent);
     switch (message.name) {
         case "swith-features":
             if (message.swapImage) {
-              
+                $imageType.each(function () {
+                    DragAndDrop.setup($(this));
+                });
             }
 
             if (message.swapImage === false) {
-
+                $imageType.each(function () {
+                    DragAndDrop.removeSetup($(this));
+                });
             }
-            if (message.swapImage) {
 
-            }
-
-            console.log(message);
+            message.editContent ? $contentType.attr("contenteditable", "true") : $contentType.removeAttr("contenteditable");
+            
+            
             break;
     }
 });
