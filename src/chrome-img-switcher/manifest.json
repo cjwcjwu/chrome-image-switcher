@@ -1,76 +1,79 @@
 {
-  "name": "Chrome Image Switcher",
-  "description": "Chrome Image Switcher",
-  "version": "0.0.0",
-  "manifest_version": 2,
-  "icons": {
-    "16": "icon.png",
-    "128": "icon.png"
-  },
+    "name": "Chrome Image Switcher",
+    "description": "Chrome Image Switcher",
+    "version": "0.0.0",
+    "manifest_version": 2,
+    "icons": {
+        "16": "icon.png",
+        "128": "icon.png"
+    },
 
-  "background": {
-    "scripts": ["js/background.js"]
-  },
-  "content_scripts": [{
-    "matches": [
-      "http://*/*",
-      "https://*/*"
+    "background": {
+        "scripts": [ "js/background.js" ]
+    },
+    "content_scripts": [
+        {
+            "matches": [
+                "http://*/*",
+                "https://*/*"
+            ],
+            "js": [
+                "lib/jquery-1.8.3.min.js",
+                "lib/jquery-1.9.0.js",
+                "lib/jquery-ui-1.10.2.custom.min.js",
+                "js/inject.js",
+                "js/DragnDrop.js"
+            ],
+            "css": [
+                "css/jquery-ui-1.10.2.custom.min.css",
+                "css/designer.css"
+            ],
+            "all_frames": true,
+            "run_at": "document_end"
+        }
     ],
-    "js": [
-      "lib/jquery-1.8.3.min.js",
-      "lib/jquery-1.9.0.js",
-      "lib/jquery-ui-1.10.2.custom.min.js",
-      "js/DragnDrop.js"
-     ],
-    "css" : [
-      "css/jquery-ui-1.10.2.custom.min.css",
-      "css/designer.css"
+
+    "commands": {
+        "screenshot": {
+            "suggested_key": {
+                "default": "Alt+Shift+C"
+            },
+            "description": "Capture screenshot"
+        },
+        "cursor": {
+            "suggested_key": {
+                "default": "Alt+Shift+V"
+            },
+            "description": "View/hide cursor position"
+        },
+        "wait": {
+            "suggested_key": {
+                "default": "Alt+Shift+W"
+            },
+            "description": "Get wait for element"
+        }
+    },
+
+    "web_accessible_resources": [
+        "js/inject.js.map",
+        "js/inject.ts"
     ],
-    "all_frames": true,
-    "run_at": "document_end"
-  }],
 
-  "commands": {
-    "screenshot": {
-      "suggested_key": {
-        "default": "Alt+Shift+C"
-      },
-      "description": "Capture screenshot"
+    "browser_action": {
+        "default_icon": {
+            "19": "icon.png",
+            "38": "icon.png"
+        },
+        "default_title": "Chrome Image Switcher",
+        "default_popup": "popup/index.html"
     },
-    "cursor": {
-      "suggested_key": {
-        "default": "Alt+Shift+V"
-      },
-      "description": "View/hide cursor position"
-    },
-    "wait": {
-      "suggested_key": {
-        "default": "Alt+Shift+W"
-      },
-      "description": "Get wait for element"
-    }
-  },
 
-  "web_accessible_resources": [
-    "js/front.js.map",
-    "js/front.ts"
-  ],
+    "permissions": [
+        "tabs",
+        "webRequest",
+        "webRequestBlocking",
+        "<all_urls>"
+    ],
 
-  "browser_action": {
-    "default_icon": {
-      "19": "icon.png",
-      "38": "icon.png"
-    },
-    "default_title": "Chrome Image Switcher",
-    "default_popup": "popup/index.html"
-  },
-
-  "permissions": [
-    "tabs",
-    "webRequest",
-    "webRequestBlocking",
-    "<all_urls>"
-  ],
-
-  "content_security_policy": "script-src 'self' 'unsafe-eval'; object-src 'self'"
+    "content_security_policy": "script-src 'self' 'unsafe-eval'; object-src 'self'"
 }

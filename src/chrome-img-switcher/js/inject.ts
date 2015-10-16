@@ -1,27 +1,37 @@
-$(function() {
-	// $("#dm-pix-calculator a").live("click", function(){
-	// 	var basePx = $("#dm-pix-calculator #base-pixel").val();
-	// 	var targetPx = $("#dm-pix-calculator #target-pixel").val();
-	// 	var ems = targetPx/basePx;
-	// 	$("#dm-pix-calculator #result").text(ems);
-	// });
-});
+module Cis {
+    var activeDiv: HTMLElement;
 
-// Add chrome extension listener
-// chrome.extension.onMessage.addListener(function(request, sender, sendResponse) {
-// 	if (request.action == "toggle_editmode") {
-// 		// toggle the edit mode
-// 		var isEditable = PageDesigner.getEditMode();
-// 		isEditable = !isEditable;
-//
-// 		if(isEditable) {
-// 			PageDesigner.turnEditOn();
-// 		} else { //remove editing capabilities
-// 			PageDesigner.turnEditOff();
-// 		}
-//
-// 		// send a response back to the background script
-// 		var responseText = isEditable ? "on" : "off";
-// 		sendResponse({"edit_mode": responseText});
-// 	}
-// });
+    $("div").each(function () {
+        var $this = $(this);
+        var backgroundImage = window.getComputedStyle(this).backgroundImage;
+        if (backgroundImage) {
+            $this.dblclick((event) => {
+                event.stopPropagation();
+                activeDiv = $this[0];
+                $this.css("box-shadow", "blue 0 0 12px 1px");
+
+                var style = window.getComputedStyle(this);
+                if (style.backgroundImage) {
+                    chrome.runtime.sendMessage({
+                        name: "edit-backgroup",
+                        url: style.backgroundImage.slice(4, -1),
+                        positionX: style.backgroundPositionX,
+                        positionY: style.backgroundPositionY,
+                        width: style.width,
+                        height: style.height
+                    });
+                }
+            });
+        }
+    });
+
+    chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
+        switch (message.name) {
+            case "set-backgroup-position":
+               $(activeDiv).css('background-position', message.positionX + "px " + message.positionY + "px");
+                break;
+        }
+    });
+}
+
+    //    box-shadow: red 0 0 12px 1px;

@@ -1,0 +1,35 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <link href="../Content/bootstrap.min.css" rel="stylesheet" />
+    <style>
+        #outside {
+            position: relative;
+        }
+
+        #frame {
+            position: absolute;
+            box-shadow: blue 0 0 12px 1px;
+        }
+
+        #image {
+            position: absolute;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <button class="btn btn-primary" id="set-position">ok</button>
+        <hr/>
+        <div id="outside">
+            <img id="image" />
+            <div id="frame"></div>
+        </div>
+    </div>
+    <script src="../Scripts/jquery-1.9.1.min.js"></script>
+    <script src="../lib/jquery-ui-1.10.2.custom.min.js"></script>
+    <script src="../Scripts/bootstrap.min.js"></script>
+    <script src="index.js"></script>
+</body>
+</html>
