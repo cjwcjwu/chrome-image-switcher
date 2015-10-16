@@ -130,7 +130,7 @@
         }
 
 .drag-over {
-    outline: red solid 2px;
+    box-shadow: #B00 0 0 20px 3px;
 }
 
 #dm-pix-calculator {
