@@ -1,33 +1,33 @@
 /* Drag and Drop */
 //Setup drag and drop
-$(function () {
+$(() => {
     $("img, .hero, a, div, span").each(function () {
         DragAndDrop.setup($(this));
     });
     $("h1, h2, h3, h4, h5, h6, p, a").attr("contenteditable", "true");
-
+    //$("h1, h2, h3, h4, h5, h6, p, a").removeAttr("contenteditable");
 });
-var DragAndDrop = (function () {
+var DragAndDrop = (() => {
     var selectedElement;
     var configVars = {
         dragClass: "drag-over"
     };
 
-    var dragOver = function (event) {
+    var dragOver = event => {
         doNothing(event);
 
         var element = event.target;
         $(element).addClass(configVars.dragClass);
     }
 
-    var dragLeave = function (e) {
+    var dragLeave = e => {
         doNothing(e);
 
         var element = e.target;
         $(element).removeClass(configVars.dragClass);
     }
 
-    var dropHandler = function (event) {
+    var dropHandler = event => {
         doNothing(event);
 
         var element = event.target;
@@ -52,30 +52,30 @@ var DragAndDrop = (function () {
         }
     }
 
-    var doNothing = function (event) {
+    var doNothing = event => {
         event.stopPropagation();
         event.preventDefault();
     }
 
-    var readFile = function (readFile) {
+    var readFile = readFile => {
         var reader = new FileReader();
 
         //For TEXT FILES Read file into memory as UTF-16
         //reader.readAsText(readFile, "UTF-8");
         switch (readFile.type) {
-            case "image/png":
-            case "image/jpeg":
-            case "image/jpg":
-                reader.readAsDataURL(readFile);
-                reader.onload = loaded;
-                break;
-            // case "text/plain":
-            //     reader.readAsText(readFile);
-            //     reader.onload = textloaded;
-            //     break;
-            default:
-                doNothing(null);
-                return;
+        case "image/png":
+        case "image/jpeg":
+        case "image/jpg":
+            reader.readAsDataURL(readFile);
+            reader.onload = loaded;
+            break;
+        // case "text/plain":
+        //     reader.readAsText(readFile);
+        //     reader.onload = textloaded;
+        //     break;
+        default:
+            doNothing(null);
+            return;
         }
 
         // Handle progress, success, and errors
@@ -83,7 +83,7 @@ var DragAndDrop = (function () {
     }
 
 
-    var loaded = function (evt) {
+    var loaded = evt => {
         // Obtain the read file data.
         var url = evt.target.result;
         if (selectedElement.is("img")) {
@@ -98,7 +98,7 @@ var DragAndDrop = (function () {
         $(".preview").draggable();
     }
 
-    var setup360 = function (files) {
+    var setup360 = files => {
         var rdr;
         for (var i = 0; i < files.length; i++) {
             rdr = new FileReader();
@@ -108,8 +108,8 @@ var DragAndDrop = (function () {
             loadsingle(rdr, i);
         };
 
-        function loadsingle(rdr, i) {
-            rdr.onload = function (evt) {
+        function loadsingle(rdr: any, i: any) {
+            rdr.onload = evt => {
                 var flstring = evt.target.result;
                 $(".images-container img").eq(i).attr("src", flstring);
             }
@@ -118,13 +118,13 @@ var DragAndDrop = (function () {
         //$(".images-container img").eq(0).addClass("active");
     }
 
-    var errorHandler = function (evt) {
+    var errorHandler = evt => {
         if (evt.target.error.name == "NotReadableError") {
             // The file could not be read.
         }
     }
 
-    var setup = function (elem) {
+    var setup = elem => {
         var element = elem.get(0);
         element.addEventListener("drop", dropHandler, false);
         element.addEventListener("dragleave", dragLeave, false);
@@ -138,11 +138,8 @@ var DragAndDrop = (function () {
 
 chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
     switch (message.name) {
-        case "swap-image-on":
-            console.log("on");
-            break;
-        case "swap-image-off":
-            console.log("off");
+        case "swith-features":
+            console.log(message);
             break;
     }
 });

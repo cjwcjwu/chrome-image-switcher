@@ -20,19 +20,26 @@
             }
         }
         return queryString;
-    }) ();
+    })();
     var tabId: number;
 
     function sendMessage(message: any, cb?: (response: any) => void): void {
         chrome.tabs.sendMessage(tabId, message, cb);
     }
 
+    function switchFeatures() {
+        sendMessage({
+            name: "swith-features",
+            swapImage: $("#swap-image").is(":checked"),
+            EditContent: $("#edit-content").is(":checked"),
+            changeBackground: $("#change-background").is(":checked")
+        });
+    }
+
     $(() => {
         tabId = parseInt(queryString["tabId"]);
-        $("#swap-image").click(function () {
-            sendMessage({
-                name: $(this).is(":checked") ? "swap-image-on" : "swap-image-off"
-            });
+        $("#swap-image").click(() => {
+            switchFeatures();
         });
     });
 }
