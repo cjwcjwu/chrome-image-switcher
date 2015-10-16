@@ -3,18 +3,18 @@ module Inject {
         isFeatureOn = false;
 
     function setBackground(event: any) {
-        if (activeDiv) {
-            $(activeDiv).removeAttr("chrome-img-switcher-edit-background");
-        }
-
         event.stopPropagation();
-        activeDiv = event.target;
-        // $(activeDiv).css("box-shadow", "#B00 0 0 20px 3px");
-
-        $(activeDiv).attr({ "chrome-img-switcher-edit-background": true });
+        var $activeDiv = $(event.target);
 
         var style = window.getComputedStyle(event.target);
-        if (style.backgroundImage) {
+        if (style.backgroundImage && $activeDiv.css('background-image') && !($activeDiv.css("background-image") === "none")) {
+            if (activeDiv) {
+                $(activeDiv).removeAttr("chrome-img-switcher-edit-background");
+            }
+            activeDiv = event.target;
+
+            $activeDiv.attr({ "chrome-img-switcher-edit-background": true });
+
             chrome.runtime.sendMessage({
                 name: "edit-background",
                 url: style.backgroundImage.slice(4, -1),
