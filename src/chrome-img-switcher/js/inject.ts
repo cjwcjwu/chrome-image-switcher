@@ -8,7 +8,7 @@ module Cis {
             $this.dblclick((event) => {
                 event.stopPropagation();
                 activeDiv = $this[0];
-                $this.css("box-shadow", "blue 0 0 12px 1px");
+                $this.css("box-shadow", "#B00 0 0 20px 3px");
 
                 var style = window.getComputedStyle(this);
                 if (style.backgroundImage) {
