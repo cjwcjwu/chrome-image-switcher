@@ -8,7 +8,7 @@ module Back {
                 url: `popup/index.html?tabId=${tab.id}`,
                 type: "popup",
                 width: 540,
-                height: 295
+                height: 310
             }, (win) => {
                 popupWin = win;
             });
