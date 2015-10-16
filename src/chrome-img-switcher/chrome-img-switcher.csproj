@@ -54,6 +54,7 @@
     <Content Include="Content\bootstrap-theme.css.map" />
     <Content Include="Content\bootstrap.css.map" />
     <None Include="Scripts\jquery-1.9.1.intellisense.js" />
+    <Content Include="backgroup-editor\index.html" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\jquery-1.9.1.js" />
@@ -74,9 +75,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <TypeScriptCompile Include="backgroup-editor\index.ts" />
     <TypeScriptCompile Include="js\background.ts" />
     <TypeScriptCompile Include="js\DragnDrop.ts" />
-    <TypeScriptCompile Include="js\front.ts" />
     <TypeScriptCompile Include="js\inject.ts" />
     <TypeScriptCompile Include="js\PageEditor.ts" />
     <TypeScriptCompile Include="popup\js\index.ts" />

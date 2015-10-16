@@ -4,13 +4,40 @@
 
 <head>
     <title>image switcher</title>
+    <script src="../Scripts/jquery-1.9.1.min.js"></script>
+    <script src="../Scripts/bootstrap.min.js"></script>
     <link href="../Content/bootstrap.min.css" rel="stylesheet" />
+    <link href="../css/designer.css" rel="stylesheet" />
 </head>
 
 <body>
-    <h1>image switcher</h1>
-    <script src="../Scripts/jquery-1.9.1.min.js"></script>
-    <script src="../Scripts/bootstrap.min.js"></script>
+    <div id="wrapper">
+        <h4>Image switcher</h4>
+        <div class="btn-group" role="group">
+            <button type="button" class="btn btn-default">Swap image</button>
+            <button type="button" class="btn btn-default">Edit Content</button>
+        </div>
+        <br />
+        <br />
+        <table class="table table-hover table-condensed">
+            <tbody>
+                <tr>
+                    <td>Swap image</td>
+                    <td>Swap the image/background image to your local one</td>
+                </tr>
+                <tr>
+                    <td>Edit Content</td>
+                    <td>Inline edit text</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div class="text_block" id="feedback">
+            If you have any questions, please don't hesitate to <a href="http://fticonsulting.com" target="_blank">contact us</a>.
+        </div>
+
+        <div id="version" class="text-muted"><small>Image Switcher v0.0</small></div>
+    </div>
 </body>
 
 </html>

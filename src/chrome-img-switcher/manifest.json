@@ -4,8 +4,10 @@
     "version": "0.0.0",
     "manifest_version": 2,
     "icons": {
-        "16": "icon.png",
-        "128": "icon.png"
+        "16": "icons/success-16.png",
+        "19": "icons/success-19.png",
+        "48": "icons/success-48.png",
+        "128": "icons/success-128.png"
     },
 
     "background": {
@@ -61,11 +63,12 @@
 
     "browser_action": {
         "default_icon": {
-            "19": "icon.png",
-            "38": "icon.png"
+            "19": "icons/success-19.png",
+            "38": "icons/success-48.png"
         },
         "default_title": "Chrome Image Switcher",
         "default_popup": "popup/index.html"
+
     },
 
     "permissions": [

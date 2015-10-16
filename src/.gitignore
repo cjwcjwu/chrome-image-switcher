@@ -229,5 +229,7 @@ _Pvt_Extensions
 # FAKE - F# Make
 .fake/
 
-chrome-img-switcher/js/**/*.js
-chrome-img-switcher/js/**/*.js.map
+
+chrome-img-switcher/**/*.js
+chrome-img-switcher/**/*.js.map
+!chrome-img-switcher/lib/**/*.js
