@@ -1,3 +1,8 @@
 .chrome-extension-image-switcher-drag-over {
     box-shadow: #B00 0 0 20px 3px;
 }
+
+
+[chrome-img-switcher-edit-background] {
+    box-shadow: #B00 0 0 20px 3px;
+}
