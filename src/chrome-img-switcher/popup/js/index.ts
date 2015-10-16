@@ -100,6 +100,13 @@
         });
 
         $(window).unload(() => {
+            sendMessage({
+                name: "swith-features",
+                swapImage: false,
+                editContent: false,
+                changeBackground: false
+            });
+
             var bg: any = chrome.extension.getBackgroundPage();
             bg.popupWin = null;
         });
