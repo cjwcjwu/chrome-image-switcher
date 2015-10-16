@@ -65,12 +65,19 @@
         $("#myModal").modal("show");
     }
 
+    function switchFeatures() {
+        sendMessage({
+            name: "swith-features",
+            swapImage: $("#swap-image").is(":checked"),
+            EditContent: $("#edit-content").is(":checked"),
+            changeBackground: $("#change-background").is(":checked")
+        });
+    }
+
     $(() => {
         tabId = parseInt(queryString["tabId"]);
-        $("#swap-image").click(function () {
-            sendMessage({
-                name: $(this).is(":checked") ? "swap-image-on" : "swap-image-off"
-            });
+        $("#swap-image").click(() => {
+            switchFeatures();
         });
 
         $("#set-position").click(() => {
@@ -84,6 +91,8 @@
             }
         });
     });
+
+  
 
     // var popup, currentTab;
     chrome.runtime.onMessage.addListener((message, sender) => {
