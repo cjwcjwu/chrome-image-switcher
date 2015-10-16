@@ -21,25 +21,77 @@
         }
         return queryString;
     })();
-    var tabId: number;
+    var tabId: number,
+        framePositionX: number,
+        framePositionY: number;
 
     function sendMessage(message: any, cb?: (response: any) => void): void {
         chrome.tabs.sendMessage(tabId, message, cb);
     }
 
-    function switchFeatures() {
-        sendMessage({
-            name: "swith-features",
-            swapImage: $("#swap-image").is(":checked"),
-            EditContent: $("#edit-content").is(":checked"),
-            changeBackground: $("#change-background").is(":checked")
+    function showBackgroundEditor(config) {
+        var url = config["url"];
+
+        $("#image").attr({
+            "src": url
         });
+
+        var top = <string>config["positionY"];
+        if (top.charAt(0) === "-") {
+            top = top.substring(1);
+        } else {
+            top = "-" + top;
+        }
+
+        var left = <string>config["positionX"];
+        if (left.charAt(0) === "-") {
+            left = left.substring(1);
+        } else {
+            left = "-" + left;
+        }
+        $("#frame").css({
+            width: config["width"],
+            height: config["height"],
+            top: top,
+            left: left
+        });
+        $("#frame").draggable({
+            stop: (event, ui) => {
+                framePositionX = ui.position.left;
+                framePositionY = ui.position.top;
+            }
+        });
+
+        $("#myModal").modal("show");
     }
 
     $(() => {
         tabId = parseInt(queryString["tabId"]);
-        $("#swap-image").click(() => {
-            switchFeatures();
+        $("#swap-image").click(function () {
+            sendMessage({
+                name: $(this).is(":checked") ? "swap-image-on" : "swap-image-off"
+            });
         });
+
+        $("#set-position").click(() => {
+            if (framePositionX != undefined && framePositionY != undefined) {
+
+                chrome.tabs.sendMessage(tabId, {
+                    name: "set-backgroup-position",
+                    positionX: framePositionX * -1,
+                    positionY: framePositionY * -1
+                });
+            }
+        });
+    });
+
+    // var popup, currentTab;
+    chrome.runtime.onMessage.addListener((message, sender) => {
+        switch (message.name) {
+            case "edit-background":
+                showBackgroundEditor(message);
+                break;
+        }
+
     });
 }

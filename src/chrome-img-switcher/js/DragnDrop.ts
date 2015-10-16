@@ -139,6 +139,17 @@ var DragAndDrop = (() => {
 chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
     switch (message.name) {
         case "swith-features":
+            if (message.swapImage) {
+              
+            }
+
+            if (message.swapImage === false) {
+
+            }
+            if (message.swapImage) {
+
+            }
+
             console.log(message);
             break;
     }

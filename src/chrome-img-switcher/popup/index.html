@@ -5,14 +5,28 @@
 <head>
     <title>image switcher</title>
     <script src="../Scripts/jquery-1.9.1.min.js"></script>
+    <script src="../lib/jquery-ui-1.10.2.custom.min.js"></script>
     <script src="../Scripts/bootstrap.min.js"></script>
     <script src="js/index.js"></script>
     <link href="../Content/bootstrap.min.css" rel="stylesheet" />
     <link href="../css/designer.css" rel="stylesheet" />
+    <style>
+        #outside {
+            position: relative;
+        }
+
+        #frame {
+            position: absolute;
+            box-shadow: blue 0 0 12px 1px;
+        }
+
+       
+    </style>
+
 </head>
 
-<body id="pop-up-body">
-    <div id="wrapper">
+<body>
+    <div class="container">
         <h4>Image switcher</h4>
         <!--<div class="btn-group" role="group">
             <button type="button" class="btn btn-default">Swap image</button>
@@ -50,6 +64,23 @@
             </tbody>
         </table>
 
+
+        <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+            <div class="modal-dialog modal-lg" role="document">
+                <div class="modal-content">
+                    <div class="modal-body">
+                        <div id="outside">
+                            <img id="image" />
+                            <div id="frame"></div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-primary" id="set-position">Save changes</button>
+                    </div>
+                </div>
+            </div>
+        </div>
         <div class="text_block" id="feedback">
             If you have any questions, please don't hesitate to <a href="http://fticonsulting.com" target="_blank">contact us</a>.
         </div>
