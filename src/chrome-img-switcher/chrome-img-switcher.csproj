@@ -81,7 +81,6 @@
     <TypeScriptCompile Include="js\background.ts" />
     <TypeScriptCompile Include="js\DragnDrop.ts" />
     <TypeScriptCompile Include="js\inject.ts" />
-    <TypeScriptCompile Include="js\PageEditor.ts" />
     <TypeScriptCompile Include="popup\js\index.ts" />
     <TypeScriptCompile Include="typings\bootstrap\bootstrap.d.ts" />
     <TypeScriptCompile Include="typings\chrome\chrome.d.ts" />

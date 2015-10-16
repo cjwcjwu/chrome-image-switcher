@@ -139,8 +139,7 @@ var DragAndDrop = (() => {
 chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
     var $imageType = $("img, .hero, a, div, span"),
         $contentType = $("h1, h2, h3, h4, h5, h6, p, a");
-    console.log(message);
-    console.log(message.editContent);
+
     switch (message.name) {
         case "swith-features":
             if (message.swapImage) {
