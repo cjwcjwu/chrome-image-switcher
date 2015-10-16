@@ -7,8 +7,8 @@ module Back {
             chrome.windows.create({
                 url: `popup/index.html?tabId=${tab.id}`,
                 type: "popup",
-                width: 1150,
-                height: 700
+                width: 540,
+                height: 295
             }, (win) => {
                 popupWin = win;
             });

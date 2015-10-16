@@ -1,6 +1,6 @@
 {
     "name": "Chrome Image Switcher",
-    "description": "Chrome Image Switcher",
+    "description": "Allow designers to preview images and content on a site",
     "version": "0.0.0.1",
     "manifest_version": 2,
     "icons": {
@@ -34,27 +34,6 @@
             "run_at": "document_end"
         }
     ],
-
-    "commands": {
-        "screenshot": {
-            "suggested_key": {
-                "default": "Alt+Shift+C"
-            },
-            "description": "Capture screenshot"
-        },
-        "cursor": {
-            "suggested_key": {
-                "default": "Alt+Shift+V"
-            },
-            "description": "View/hide cursor position"
-        },
-        "wait": {
-            "suggested_key": {
-                "default": "Alt+Shift+W"
-            },
-            "description": "Get wait for element"
-        }
-    },
 
     "web_accessible_resources": [
         "js/inject.js.map",

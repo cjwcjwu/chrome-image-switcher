@@ -3,12 +3,12 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 
 <head>
-    <title>image switcher</title>
+    <title>Image Switcher</title>
     <script src="../Scripts/jquery-1.9.1.min.js"></script>
     <script src="../lib/jquery-ui-1.10.2.custom.min.js"></script>
     <script src="../Scripts/bootstrap.min.js"></script>
     <script src="js/index.js"></script>
-    <link href="../Content/bootstrap.min.css" rel="stylesheet"/>
+    <link href="../Content/bootstrap.min.css" rel="stylesheet" />
     <link href="css/style.css" rel="stylesheet" />
     <style>
         #outside {
@@ -19,74 +19,74 @@
             position: absolute;
             box-shadow: #B00 0 0 20px 3px;
         }
-
-       
     </style>
 
 </head>
 
 <body>
-    <div class="container">
-        <h4>Image switcher</h4>
-        <!--<div class="btn-group" role="group">
-            <button type="button" class="btn btn-default">Swap image</button>
-            <button type="button" class="btn btn-default">Edit Content</button>
-        </div>-->
-        <table class="table table-hover table-condensed">
-            <tbody>
-                <tr>
-                    <td class="align-middle">Swap Image</td>
-                    <td>
-                        <div class="slider">
-                            <input type="checkbox" id="swap-image" />
-                            <label for="swap-image"></label>
-                        </div>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="align-middle">Edit Content</td>
-                    <td>
-                        <div class="slider">
-                            <input type="checkbox" id="edit-content" />
-                            <label for="edit-content"></label>
-                        </div>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="align-middle">Change Background Image Position</td>
-                    <td>
-                        <div class="slider">
-                            <input type="checkbox" id="change-background" />
-                            <label for="change-background"></label>
-                        </div>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
+<div class="container-fluid">
+    <div id="version" class="text-muted">
+        <small class="pull-right"><a href="https://chrome.google.com/webstore/detail/chrome-image-switcher/meandocbmhfcfhiknbblbhjemjkpgcma" target="_blank">Leave Feedback</a></small>
+    </div>
+    <br />
+    <br />
+    <table class="table table-condensed">
+        <tbody>
+        <tr>
+            <td class="align-middle">Swap Image</td>
+            <td>
+                <div class="slider">
+                    <input type="checkbox" id="swap-image"/>
+                    <label for="swap-image"></label>
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td class="align-middle">Edit Content</td>
+            <td>
+                <div class="slider">
+                    <input type="checkbox" id="edit-content"/>
+                    <label for="edit-content"></label>
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td class="align-middle">Change Background Image Position</td>
+            <td>
+                <div class="slider">
+                    <input type="checkbox" id="change-background"/>
+                    <label for="change-background"></label>
+                </div>
+            </td>
+        </tr>
+        </tbody>
+    </table>
 
 
-        <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-            <div class="modal-dialog modal-lg" role="document">
-                <div class="modal-content">
-                    <div class="modal-body">
-                        <div id="outside">
-                            <img id="image" />
-                            <div id="frame"></div>
-                        </div>
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <div id="outside">
+                        <img id="image"/>
+                        <div id="frame"></div>
                     </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                        <button type="button" class="btn btn-primary" id="set-position">Save changes</button>
-                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary" id="set-position">Save changes</button>
                 </div>
             </div>
         </div>
-        <div class="text_block" id="feedback">
-            If you have any questions, please don't hesitate to <a href="http://fticonsulting.com" target="_blank">contact us</a>.
-        </div>
-
-        <div id="version" class="text-muted"><small>Image Switcher v0.0</small></div>
     </div>
+    <div class="text_block" id="feedback">
+        If you have any questions, please don't hesitate to <a href="https://github.com/cjwcjwu/chrome-image-switcher/issues" target="_blank">contact us</a>.
+    </div>
+
+    <div id="version" class="text-muted">
+        <small>Image Switcher v0.0</small>
+    </div>
+</div>
 </body>
 
 </html>
