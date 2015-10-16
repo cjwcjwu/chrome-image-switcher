@@ -13,7 +13,7 @@ module Cis {
                 var style = window.getComputedStyle(this);
                 if (style.backgroundImage) {
                     chrome.runtime.sendMessage({
-                        name: "edit-backgroup",
+                        name: "edit-background",
                         url: style.backgroundImage.slice(4, -1),
                         positionX: style.backgroundPositionX,
                         positionY: style.backgroundPositionY,
