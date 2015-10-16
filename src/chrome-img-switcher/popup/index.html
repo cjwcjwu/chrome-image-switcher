@@ -13,21 +13,38 @@
 <body id="pop-up-body">
     <div id="wrapper">
         <h4>Image switcher</h4>
-        <div class="btn-group" role="group">
+        <!--<div class="btn-group" role="group">
             <button type="button" class="btn btn-default">Swap image</button>
             <button type="button" class="btn btn-default">Edit Content</button>
-        </div>
-        <br />
-        <br />
+        </div>-->
         <table class="table table-hover table-condensed">
             <tbody>
                 <tr>
-                    <td>Swap image</td>
-                    <td>Swap the image/background image to your local one</td>
+                    <td class="align-middle">Swap Image</td>
+                    <td>
+                        <div class="slider">
+                            <input type="checkbox" id="swap-image" />
+                            <label for="swap-image"></label>
+                        </div>
+                    </td>
                 </tr>
                 <tr>
-                    <td>Edit Content</td>
-                    <td>Inline edit text</td>
+                    <td class="align-middle">Edit Content</td>
+                    <td>
+                        <div class="slider">
+                            <input type="checkbox" id="edit-content" />
+                            <label for="edit-content"></label>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="align-middle">Change Background Image Position</td>
+                    <td>
+                        <div class="slider">
+                            <input type="checkbox" id="change-background" />
+                            <label for="change-background"></label>
+                        </div>
+                    </td>
                 </tr>
             </tbody>
         </table>
