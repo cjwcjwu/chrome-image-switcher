@@ -1,16 +1,8 @@
 /* Drag and Drop */
-//Setup drag and drop
-//$(() => {
-//    $("img, .hero, a, div, span").each(function () {
-//        DragAndDrop.setup($(this));
-//    });
-//    $("h1, h2, h3, h4, h5, h6, p, a").attr("contenteditable", "true");
-//    //$("h1, h2, h3, h4, h5, h6, p, a").removeAttr("contenteditable");
-//});
 var DragAndDrop = (() => {
     var selectedElement;
     var configVars = {
-        dragClass: "drag-over"
+        dragClass: "chrome-extension-image-switcher-drag-over"
     };
 
     var dragOver = event => {
@@ -152,12 +144,14 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
     switch (message.name) {
         case "swith-features":
             if (message.swapImage) {
+                //Setup drag and drop
                 $imageType.each(function () {
                     DragAndDrop.setup($(this));
                 });
             }
 
             if (message.swapImage === false) {
+                //Remove setup drag and drop
                 $imageType.each(function () {
                     DragAndDrop.removeSetup($(this));
                 });
