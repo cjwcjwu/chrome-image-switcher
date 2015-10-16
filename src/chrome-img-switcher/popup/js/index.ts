@@ -90,6 +90,11 @@
                 });
             }
         });
+
+        $(window).unload(() => {
+            var bg: any = chrome.extension.getBackgroundPage();
+            bg.popupWin = null;
+        });
     });
 
   
