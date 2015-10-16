@@ -1,5 +1,5 @@
 // Add a click listener
-chrome.browserAction.onClicked.addListener(function (tab) {
+chrome.browserAction.onClicked.addListener((tab) => {
     // Send a message to the content script
     chrome.tabs.sendMessage(tab.id, { action: "toggle_editmode" }, function (response) {
         if (response.edit_mode == 'on') {
@@ -12,7 +12,10 @@ chrome.browserAction.onClicked.addListener(function (tab) {
             chrome.browserAction.setBadgeText({ 'tabId': tab.id, 'text': '' });
         }
     });
+    
 });
+
+
 
 
 

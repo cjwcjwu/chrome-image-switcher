@@ -28,7 +28,7 @@ module Cis {
     chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
         switch (message.name) {
             case "set-backgroup-position":
-               $(activeDiv).css('background-position', message.positionX + "px " + message.positionY + "px");
+                $(activeDiv).css('background-position', message.positionX + "px " + message.positionY + "px");
                 break;
         }
     });
