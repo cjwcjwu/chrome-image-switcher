@@ -45,6 +45,10 @@
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="icons\success-128.png" />
+    <Content Include="icons\success-16.png" />
+    <Content Include="icons\success-19.png" />
+    <Content Include="icons\success-48.png" />
     <Content Include="manifest.json" />
     <Content Include="packages.config" />
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
